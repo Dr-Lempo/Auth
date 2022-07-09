@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext'
 
 export default function Signup() {
+    // console.log(app)
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -10,7 +11,7 @@ export default function Signup() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
 
         if (passwordRef.current.value !==
@@ -45,14 +46,14 @@ export default function Signup() {
                             <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
                         <Form.Group id="password-confirm">
-                            <Form.Label>Password COnfirmation</Form.Label>
+                            <Form.Label>Password Confirmation</Form.Label>
                             <Form.Control type="password" ref={passwordConfirmRef} required />
                         </Form.Group>
-                        <Button disabled={loading} className='w-100' type="submit">Signup</Button>
+                        <Button disabled={loading} className='w-100 mt-3' type="submit">Signup</Button>
                     </Form>
                 </Card.Body>
             </Card>
-            <div className='w-100' text-center mt-2>Already have an account? Log In</div>
+            <div className='w-100 text-center mt-2'>Already have an account? Log In</div>
         </>
     )
 }
